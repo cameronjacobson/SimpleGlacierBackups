@@ -112,6 +112,21 @@ class SimpleGlacierBackups
 		return $this->client->initiateJob($p);
 	}
 
+	public function getJobOutput(array $params){
+		$args = array(
+			'accountId' => '-',
+			'vaultName' => $this->vault,
+			'jobId'     => $params['jobid'],
+		);
+		if(!empty($params['range'])){
+			$args['range'] = $params['range'];
+		}
+		if(!empty($params['saveas'])){
+			$args['saveAs'] = $params['saveas'];
+		}
+		return $this->client->getJobOutput($args);
+	}
+
 	/**
 	 * @param $vaultName : name of AWS Glacier vault
 	 */

@@ -10,9 +10,13 @@ $client = new SimpleGlacierBackups('testvault',array(
 	'region'=>'us-west-2'
 ));
 
-$a = $client->retrieveArchive(array(
-	'sns'=>'arn:aws:sns:us-west-2:123456789:glacier_sns',
-	'archiveid'=>'??'
+$a = $client->getJobOutput(array(
+	'jobid'=>'??'
 ));
 
-var_dump($a);
+if($x = json_decode($a['body']->__toString(),JSON_PRETTY_PRINT)){
+	print_r($x);
+}
+else{
+	echo $a['body']->__toString();
+}
