@@ -1,0 +1,4 @@
+*.swp
+myexamples
+vendor
+composer.lock

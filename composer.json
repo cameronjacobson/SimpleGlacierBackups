@@ -1,0 +1,12 @@
+{
+    "name": "SimpleGlacierBackups",
+    "require": {
+		"aws/aws-sdk-php":"2.8.*"
+    },
+    "autoload":{
+        "psr-0": {
+            "SimpleGlacierBackups":"src/"
+        }
+    }
+}
+
